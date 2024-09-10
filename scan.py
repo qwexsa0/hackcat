@@ -11,8 +11,7 @@ def get_arguments():
     parser.add_argument('-q', '--query', dest='query', help='Specify the Search Query within \'\'')
     parser.add_argument('-e', '--engine', dest='engine', help='Specify the Search Engine (Google/Bing)')
     parser.add_argument('-p', '--pages', dest='pages', help='Specify the Number of Pages (Default: 1)')
-    parser.add_argument('-P', '--processes', dest='processes', help='Specify the Number of Processes (Default: 2)')
-    parser.add_argument('-o', '--output', dest='output', help='Specify the Output File')
+    parser.add_argument('-P', '--processes', dest='processes', help='Specify the Number of Processes (Default: 2)')    
     options = parser.parse_args()
     return options
 
@@ -40,64 +39,47 @@ def bing_search(query, page):
         result.append(link.text)
     return result
 
-def search_result(q, engine, pages, processes, result, output_file):
-    with open(output_file, 'w') as f:
-        for r in result:
-            for link in r:
-                f.write(link + '\n')
-
-options = get_arguments()
-
+def search_result(q, engine, pages, processes, result):
+    print('-' * 70)
+    print(f'Searching for: {q} in {pages} page(s) of {engine} with {processes} processes')
+    print('-' * 70)
+    print()
+    counter = 0
+    for range in result:
+        for r in range:
+            print(' ' + r)
+            counter += 1
+    print()
+    print('-' * 70)
+    print(f'Number of urls: {counter}')
+    print('-' * 70)
 
 def main():
-    print()
-    if not options.query:
-        query = input('[?] Enter the Search Query: ')
-    else:
-        query = options.query
-    if not options.engine:
-        engine = input('[?] Choose the Search Engine (Google/Bing): ')
-    else:
-        engine = options.engine
+    query = input('[?] Enter the Search Query: ')
+    engine = input('[?] Choose the Search Engine (Google/Bing): ')
+    pages = int(input('[?] Enter the Number of Pages: '))
+    processes = int(input('[?] Enter the Number of Processes: '))
 
     if engine.lower() == 'google':
         target = partial(google_search, query)
     elif engine.lower() == 'bing':
         target = partial(bing_search, query)
-
     else:
         print('[-] Invalid Option Entered!...Exiting the Program....')
         exit()
-    if not options.pages:
-        pages = 1
-    else:
-        pages = options.pages
-
-    if not options.processes:
-        processes = 2
-    else:
-        processes = options.processes
-
-    if not options.output:
-        output_file = 'output.txt'
-    else:
-        output_file = options.output
 
     with Pool(int(processes)) as p:
         result = p.map(target, range(int(pages)))
 
-    search_result(query, engine, pages, processes, result, output_file)
+    search_result(query, engine, pages, processes, result)
 
-try:
-    main()
-    while True:
-        if options.query and options.engine:
-            exit()
-        else:
+if __name__ == "__main__":
+    try:
+        while True:
             main()
-except KeyboardInterrupt:
-    print('\nThanks For using!')
-    exit()
-except TimeoutError:
-    print(RED + '\n[-] Too many requests, please try again later....')
-    exit()
+    except KeyboardInterrupt:
+        print('\nThanks For using!')
+        exit()
+    except TimeoutError:
+        print(RED + '\n[-] Too many requests, please try again later....')
+        exit()
