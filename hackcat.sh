@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Title: HACKCAT Toolkit v2.0
+# Title: HACKCAT Toolkit
 # Developer: qwexsa
-
-# Welcome Banner
+pip install python-cfonts
 python -c "from cfonts import render; qawe = render('HACKCAT', colors=['red', 'green', 'white'], align='center', font='block'); print(qawe)"
 echo -e "\e[1m\e[32mDeveloper:\e[0m \e[1m\e[36mqwexsa\e[0m"
 echo -e "\e[33mDiscord: qawexsa\e[0m"
@@ -11,7 +10,6 @@ echo -e "\e[33m ➛ Welcome to my own hacking toolkit <3\e[0m"
 echo -e "\e[36m ➛ Kendi hack araç kit'ime hoşgeldin <3\e[0m"
 echo ""
 
-# Menu function
 main_menu() {
   echo -e "\033[1;37m [1] > Information Gathering Tools < \e[0m"
   echo -e "\033[1;37m [2] > SQL Injection Tools < \e[0m"
@@ -31,7 +29,7 @@ main_menu() {
   echo ""
 
   read -p "Please make a selection > " secim
-
+# dc : qawexsa1
   case $secim in
     1) info_gathering ;;
     2) sql_injection ;;
@@ -55,7 +53,7 @@ main_menu() {
   esac
 }
 
-# Category 1: Information Gathering Tools
+# dc : qawexsa1
 info_gathering() {
   echo -e "\033[1;32m You selected Information Gathering Tools! \e[0m"
   echo -e "\033[1;33m [1] > theHarvester < \e[0m"
@@ -91,8 +89,7 @@ info_gathering() {
       ;;
   esac
 }
-
-# Category 2: SQL Injection Tools
+# dc : qawexsa1
 sql_injection() {
   echo -e "\033[1;32m You selected SQL Injection Tools! \e[0m"
   echo -e "\033[1;33m [1] > sqlmap < \e[0m"
@@ -116,8 +113,7 @@ sql_injection() {
       ;;
   esac
 }
-
-# Category 3: Wireless Attack Tools
+# dc : qawexsa1
 wireless_attack() {
   echo -e "\033[1;32m You selected Wireless Attack Tools! \e[0m"
   echo -e "\033[1;33m [1] > Aircrack-ng < \e[0m"
@@ -145,8 +141,7 @@ wireless_attack() {
       ;;
   esac
 }
-
-# Category 4: Phishing Attack Tools
+# dc : qawexsa1
 phishing_attack() {
   echo -e "\033[1;32m You selected Phishing Attack Tools! \e[0m"
   echo -e "\033[1;33m [1] > HiddenEye < \e[0m"
@@ -171,7 +166,6 @@ phishing_attack() {
   esac
 }
 
-# Category 5: Web Attack Tools
 web_attack() {
   echo -e "\033[1;32m You selected Web Attack Tools! \e[0m"
   echo -e "\033[1;33m [1] > XAttacker < \e[0m"
@@ -200,7 +194,6 @@ web_attack() {
   esac
 }
 
-# Category 6: Forensic Tools
 forensic_tools() {
   echo -e "\033[1;32m You selected Forensic Tools! \e[0m"
   echo -e "\033[1;33m [1] > Autopsy < \e[0m"
@@ -225,7 +218,6 @@ forensic_tools() {
   esac
 }
 
-# Category 7: DDOS Attack Tools
 ddos_attack() {
   echo -e "\033[1;32m You selected DDOS Attack Tools! \e[0m"
   echo -e "\033[1;33m [1] > Slowloris < \e[0m"
@@ -250,7 +242,6 @@ ddos_attack() {
   esac
 }
 
-# Category 8: Wordlist Generator
 wordlist_gen() {
   echo -e "\033[1;32m You selected Wordlist Generator! \e[0m"
   echo -e "\033[1;33m [1] > Crunch < \e[0m"
@@ -275,7 +266,6 @@ wordlist_gen() {
   esac
 }
 
-# Category 9: Sniffing & Spoofing Tools
 sniffing_spoofing() {
   echo -e "\033[1;32m You selected Sniffing & Spoofing Tools! \e[0m"
   echo -e "\033[1;33m [1] > Wireshark < \e[0m"
@@ -300,7 +290,6 @@ sniffing_spoofing() {
   esac
 }
 
-# Category 10: Password Attack Tools
 password_attacks() {
   echo -e "\033[1;32m You selected Password Attack Tools! \e[0m"
   echo -e "\033[1;33m [1] > John the Ripper < \e[0m"
@@ -325,7 +314,6 @@ password_attacks() {
   esac
 }
 
-# Category 11: Social Engineering Tools
 social_eng() {
   echo -e "\033[1;32m You selected Social Engineering Tools! \e[0m"
   echo -e "\033[1;33m [1] > Social-Engineer Toolkit (SET) < \e[0m"
@@ -346,7 +334,6 @@ social_eng() {
   esac
 }
 
-# Category 12: XSS Attack Tools
 xss_attack() {
   echo -e "\033[1;32m You selected XSS Attack Tools! \e[0m"
   echo -e "\033[1;33m [1] > XSSer < \e[0m"
@@ -367,7 +354,6 @@ xss_attack() {
   esac
 }
 
-# Category 13: Network Pentesting Tools
 network_pentest() {
   echo -e "\033[1;32m You selected Network Pentesting Tools! \e[0m"
   echo -e "\033[1;33m [1] > Metasploit Framework < \e[0m"
@@ -392,7 +378,6 @@ network_pentest() {
   esac
 }
 
-# Category 14: Other Tools
 other_tools() {
   echo -e "\033[1;32m You selected Other Tools! \e[0m"
   echo -e "\033[1;33m [1] > Hashcat < \e[0m"
@@ -417,11 +402,9 @@ other_tools() {
   esac
 }
 
-# Exit message
 exit_message() {
   echo -e "\033[1;32m Thank you for using the HACKCAT Toolkit! Stay safe and ethical! \e[0m"
   exit 0
 }
 
-# Start the script by calling the main menu
 main_menu
